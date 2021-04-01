@@ -137,7 +137,7 @@ DEPENDENCIES
   pry-rails
   rails (~> 3.2.0)
   sass-rails (~> 3.2.3)
-  test-unit
+  test-unit (~> 3.0)
   uglifier (>= 1.0.3)
 
 BUNDLED WITH

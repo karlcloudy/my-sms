@@ -2,12 +2,8 @@ class Student < ActiveRecord::Base
   attr_accessible :birth_date, :email, :first_name, :gender, :last_name, :middle_name, :title
 
   def full_name
-    #NOTE: first_name is optional to support single names.
-    if middle_name
-      "#{title} #{first_name} #{middle_name} #{last_name}".strip
-    else
-      "#{title} #{first_name} #{last_name}".strip
-    end
+    #NOTE: first_name, and middle_name are optional to support single names.
+    [title, first_name, middle_name, last_name].reject(&:blank?).join(' ')
   end
 
   validates :title, length: { maximum: 10 }  

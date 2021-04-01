@@ -7,6 +7,9 @@ gem 'rails', '~> 3.2.0'
 
 gem 'mysql2', '~> 0.3.10'
 
+gem 'factory_bot_rails', '~> 4.11.1'
+gem 'faker', '~> 2.2.1'
+
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -21,6 +24,13 @@ group :assets do
 end
 
 gem 'jquery-rails'
+
+group :test, :development do
+  #rails console doesn't work without the 'test-unit' gem.
+  gem 'test-unit', '~> 3.0'
+  gem 'pry'
+  gem 'pry-rails'
+end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

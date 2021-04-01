@@ -11,6 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20210330225119) do
+
+  create_table "students", :force => true do |t|
+    t.string   "title",       :limit => 10, :null => false
+    t.string   "first_name"
+    t.string   "middle_name"
+    t.string   "last_name",                 :null => false
+    t.string   "email",                     :null => false
+    t.date     "birth_date",                :null => false
+    t.string   "gender",      :limit => 1,  :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+  end
 
 end

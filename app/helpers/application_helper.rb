@@ -1,3 +1,3 @@
 module ApplicationHelper
-  WillPaginate.per_page = 10
+  PAGINATION_PAGE_SIZE = 10;
 end

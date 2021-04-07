@@ -9,7 +9,8 @@ gem 'mysql2', '~> 0.3.10'
 
 gem 'factory_bot_rails', '~> 4.11.1'
 gem 'faker', '~> 2.2.1'
-
+gem 'will_paginate', '~> 3.3.0'
+gem 'will_paginate-bootstrap'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -18,7 +19,9 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer'
+  gem 'therubyracer', '~> 0.12.3'
+  gem 'less-rails', '~> 2.6.0'
+  gem 'twitter-bootstrap-rails', '~> 3.2.2'
 
   gem 'uglifier', '>= 1.0.3'
 end

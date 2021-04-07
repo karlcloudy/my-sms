@@ -1,0 +1,22 @@
+<h1><i class="fa fa-graduation-cap"></i> Students</h1>
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Full Name</th>
+      <th scope="col">Email Address</th>
+      <th scope="col">Date of Birth</th>
+      <th scope="col">Gender</th>            
+    </tr>
+  </thead>
+  <tbody>
+    <% @students.each do |student| %>
+      <tr>
+        <td><%= student.full_name %></td>
+        <td><%= student.email %></td>
+        <td><%= student.birth_date %></td>
+        <td><%= student.gender %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @students, renderer: BootstrapPagination::Rails, previous_label: 'Prev', next_label: 'Next', bootstrap: 3 %>

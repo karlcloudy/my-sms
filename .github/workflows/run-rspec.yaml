@@ -1,0 +1,39 @@
+name: Run RSpec Tests
+on: [push, pull_request]
+
+env:
+  RUBY_VERSION: 2.3.5
+  DB_HOST: 127.0.0.1
+  DB_USER: root
+  DB_PASSWORD: r00tp@ss
+  RAILS_ENV: test
+
+jobs:
+  rspec-test:
+    name: RSpec
+    runs-on: ubuntu-16.04
+
+    services:
+        mysql:
+          image: mysql:5.7
+          ports:
+            - 3306:3306
+          env:
+            MYSQL_ROOT_PASSWORD: ${{ env.DB_PASSWORD }}      
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ env.RUBY_VERSION }}    
+      - name: Install dependencies
+        run: |
+          gem install bundler -v 1.17
+          bundle install
+      - name: Initialize database
+        run: |
+          bundle exec rake db:create
+          bundle exec rake db:migrate
+      - name: Run tests
+        run: bundle exec rspec        

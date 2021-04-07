@@ -3,7 +3,7 @@ on: [push, pull_request]
 
 env:
   RUBY_VERSION: 2.3.5
-  DB_HOST: localhost
+  DB_HOST: 127.0.0.1
   DB_USER: root
   DB_PASSWORD: r00tp@ss
   RAILS_ENV: test

@@ -34,7 +34,8 @@ RSpec.describe StudentsController, type: :controller do
     it { is_expected.to render_template(:edit) }
 
     it 'assigns the expected student to @student' do
-      is_expected.to eq student
+      subject
+      expect(assigns(:student)).to eq student
     end
   end  
 

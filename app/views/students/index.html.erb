@@ -6,9 +6,7 @@
       <th scope="col">Email Address</th>
       <th scope="col">Date of Birth</th>
       <th scope="col">Gender</th>    
-      <th scope="col"></th>
-      <th scope="col"></th>
-      <th scope="col"></th>
+      <th scope="col" class="text-right">Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -18,8 +16,15 @@
         <td><%= student.email %></td>
         <td><%= student.birth_date %></td>
         <td><%= student.gender %></td>
-        <td><%= link_to '<i class="fa fa-search text-muted"></i>'.html_safe, student_path(student) %></td>
-        <td><%= link_to '<i class="fa fa-pencil text-muted"></i>'.html_safe, edit_student_path(student) %></td>
+        <td class="text-right">
+          <%= link_to student_path(student) do %>
+            <i class="fa fa-search text-muted"></i>
+          <% end %>
+          &nbsp;
+          <%= link_to edit_student_path(student) do %>
+            <i class="fa fa-pencil text-muted"></i>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>

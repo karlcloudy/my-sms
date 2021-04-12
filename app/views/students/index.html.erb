@@ -24,6 +24,10 @@
           <%= link_to edit_student_path(student) do %>
             <i class="fa fa-pencil text-muted"></i>
           <% end %>
+          &nbsp;
+          <%= link_to student, method: :delete, data: { confirm: "Deleting things causes them to be gone and regret to set in later. Are you sure you want to do this?" } do %>
+            <i class="fa fa-trash text-danger"></i>
+          <% end %>          
         </td>
       </tr>
     <% end %>

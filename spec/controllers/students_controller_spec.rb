@@ -60,4 +60,17 @@ RSpec.describe StudentsController, type: :controller do
         end
     end  
   end
+
+  describe 'DELETE #destroy' do
+    subject { delete :destroy, id: student }
+
+    it 'redirects to the student list upon deletion' do
+      is_expected.to redirect_to students_path
+    end
+
+    it 'deletes the expected student' do
+      subject
+      expect { student.reload }.to raise_error(ActiveRecord::RecordNotFound)
+    end
+  end  
 end

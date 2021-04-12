@@ -3,7 +3,7 @@ Mysms::Application.routes.draw do
   #Default route - just redirect to the Student index page for now.
   root to: 'students#index'
   
-  resources :students, only: [:index, :show, :edit, :update]
+  resources :students, only: [:index, :show, :edit, :update, :destroy]
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

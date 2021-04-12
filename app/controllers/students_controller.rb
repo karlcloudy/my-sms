@@ -21,6 +21,11 @@ class StudentsController < ApplicationController
     end
   end
 
+  def destroy
+    @student.destroy
+    redirect_to students_path, notice: "Student deleted."
+  end
+
   private
 
   def set_student

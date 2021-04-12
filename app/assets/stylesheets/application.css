@@ -16,3 +16,7 @@
 .field_with_errors {
   display: inline
 }
+
+.panel_button {
+  margin-left: 10px;
+}

@@ -5,7 +5,7 @@ class Student < ActiveRecord::Base
 
   def full_name
     #NOTE: first_name, and middle_name are optional to support single names.
-    [title&.name, first_name, middle_name, last_name].reject(&:blank?).join(' ')
+    [title&.title, first_name, middle_name, last_name].reject(&:blank?).join(' ')
   end
 
   validates :title, presence: true

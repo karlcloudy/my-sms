@@ -1,7 +1,7 @@
 FactoryBot.define do
     factory :student do
         #Generate student information via Faker.
-        association :title, strategy: :build
+        title { Title.find_or_create_by_title(Faker::Name.prefix.gsub('.', '')) }
         first_name { Faker::Name.first_name }
         middle_name { Faker::Name.middle_name }
         last_name { Faker::Name.last_name }

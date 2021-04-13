@@ -12,7 +12,7 @@
   <table class="table">
     <tr>
       <th class="col-lg-2" scope="col">Title</th>
-      <td><%= @student.title %></td>
+      <td><%= @student.title&.title || (raw '<em>None</em>') %></td>
     </tr>  
     <tr>
       <th class="col-lg-2" scope="col">First Name</th>

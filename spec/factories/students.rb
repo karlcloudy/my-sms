@@ -1,7 +1,7 @@
 FactoryBot.define do
     factory :student do
+        association :title
         #Generate student information via Faker.
-        title { Faker::Name.prefix }
         first_name { Faker::Name.first_name }
         middle_name { Faker::Name.middle_name }
         last_name { Faker::Name.last_name }

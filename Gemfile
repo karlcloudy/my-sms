@@ -11,6 +11,7 @@ gem 'factory_bot_rails', '~> 4.11.1'
 gem 'faker', '~> 2.2.1'
 gem 'will_paginate', '~> 3.3.0'
 gem 'will_paginate-bootstrap'
+gem 'haml-rails', '~> 0.4.0'
 
 # Gems used only for assets and not required
 # in production environments by default.

@@ -1,0 +1,35 @@
+%h1
+  %i.fa.fa-user
+  Student Details
+.panel.panel-primary
+  .panel-heading.clearfix 
+    %h3.panel-title.pull-left
+      = @student.full_name
+    = link_to @student, method: :delete, class: "btn btn-danger btn-xs pull-right panel_button", data: { confirm: "Deleting things causes them to be gone and regret to set in later. Are you sure you want to do this?" } do
+      %i.fa.fa-trash 
+      Delete
+    = link_to edit_student_path(@student), class: "btn btn-default btn-xs pull-right panel_button" do
+      %i.fa.fa-pencil
+      Edit
+  %table.table
+    %tr
+      %th.col-lg-2{scope: "col"} Title
+      %td= @student.title&.title || (raw '<em>None</em>')
+    %tr
+      %th{scope: "col"} First Name
+      %td= @student.first_name || (raw '<em>None</em>')
+    %tr
+      %th{scope: "col"} Middle Name
+      %td= @student.middle_name || (raw '<em>None</em>')
+    %tr
+      %th{scope: "col"} Last Name
+      %td= @student.last_name
+    %tr
+      %th{scope: "col"} Email Address
+      %td= @student.email
+    %tr
+      %th{scope: "col"} Birth Date
+      %td= @student.birth_date
+    %tr
+      %th{scope: "col"} Gender
+      %td= @student.gender

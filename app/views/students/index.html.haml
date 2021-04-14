@@ -1,0 +1,28 @@
+%h1
+  %i.fa.fa-graduation-cap
+  Students
+%table.table.table-striped.table-hover
+  %thead
+    %tr
+      %th{scope: "col"} Full Name
+      %th{scope: "col"} Email Address
+      %th{scope: "col"} Date of Birth
+      %th{scope: "col"} Gender
+      %th.text-right{scope: "col"} Actions
+  %tbody
+    - @students.each do |student|
+      %tr
+        %td= student.full_name
+        %td= student.email
+        %td= student.birth_date
+        %td= student.gender
+        %td.text-right
+          = link_to student_path(student) do
+            %i.fa.fa-search.text-muted
+          &nbsp;
+          = link_to edit_student_path(student) do
+            %i.fa.fa-pencil.text-muted
+          &nbsp;
+          = link_to student, method: :delete, data: { confirm: "Deleting things causes them to be gone and regret to set in later. Are you sure you want to do this?" } do
+            %i.fa.fa-trash.text-danger
+= will_paginate @students, renderer: BootstrapPagination::Rails, previous_label: 'Prev', next_label: 'Next', bootstrap: 3

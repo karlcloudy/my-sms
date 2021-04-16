@@ -8,7 +8,6 @@ class Student < ActiveRecord::Base
     [title&.title, first_name, middle_name, last_name].reject(&:blank?).join(' ')
   end
 
-  validates :title, presence: true
-  validates :last_name, :title, :birth_date, :email, :gender, presence: true
+  validates :title, :last_name, :title, :birth_date, :email, :gender, presence: true
   validates :gender, inclusion: { in: ['M', 'F', 'O'] }
 end

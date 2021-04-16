@@ -1,4 +1,4 @@
-# My Student Management Systsem (mySms)
+# My Student Management System (mySms)
 This is a project created for learning the basics of Ruby on Rails.
 
 ## Prerequisites
@@ -25,7 +25,7 @@ Prepare the application databases using the following command
 docker-compose exec app rake db:create db:migrate
 ```
 
-The application is started automatically when the image runs, so you can browser to http://localhost:3000 to access the application once the database has been prepared.
+The application is started automatically when the image runs, so you can browse to http://localhost:3000 to access the application once the database has been prepared.
 
 Perform application tests by running:
 ```
@@ -35,7 +35,7 @@ docker-compose exec app rspec
 
 ## Shutting down the application
 
-To bring down the application, invoke the following command to spool down the containers:
+To bring down the application, invoke the following command to spool down the containers
 ```
 docker-compose down
 ```

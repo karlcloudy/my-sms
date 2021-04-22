@@ -1,0 +1,31 @@
+- content_for :title do
+  = @course.name
+%h1
+  %i.fa.fa-certificate
+  Course Details
+.panel.panel-primary
+  .panel-heading.clearfix 
+    %h3.panel-title.pull-left
+      = @course.name
+    = link_to edit_course_path(@course), class: "btn btn-default btn-xs pull-right panel_button" do
+      %i.fa.fa-pencil
+      Edit
+  %table.table
+    %tr
+      %th.col-lg-2{scope: "col"} Name
+      %td= @course.name
+    %tr
+      %th{scope: "col"} Description
+      %td= @course.description
+    %tr
+      %th{scope: "col"} No. of Semesters
+      %td= @course.number_of_semesters
+    %tr
+      %th{scope: "col"} Allocation
+      %td= @course.allocation || '-'
+    %tr
+      %th{scope: "col"} Start Date
+      %td= @course.start_date
+    %tr
+      %th{scope: "col"} End Date
+      %td= @course.end_date

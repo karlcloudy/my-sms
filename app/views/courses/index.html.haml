@@ -1,0 +1,31 @@
+- content_for :title do
+  Courses
+%h1
+  %i.fa.fa-certificate.fa-fw
+  Courses
+%table.table.table-striped.table-hover
+  %thead
+    %tr
+      %th.col-lg-2{scope: "col"} Name
+      %th.col-lg-3{scope: "col"} Description
+      %th.col-lg-1{scope: "col"} # Semesters
+      %th.col-lg-1{scope: "col"} Allocation
+      %th.col-lg-1{scope: "col"} Start Date
+      %th.col-lg-1{scope: "col"} End Date
+      %th.col-lg-1.text-right{scope: "col"} Actions
+  %tbody
+    - @courses.each do |course|
+      %tr
+        %td= course.name
+        %td= course.description
+        %td= course.number_of_semesters
+        %td= course.allocation || '-'
+        %td= course.start_date
+        %td= course.end_date
+        %td.text-right
+          = link_to course_path(course) do
+            %i.fa.fa-search.text-muted
+          &nbsp;
+          = link_to edit_course_path(course) do
+            %i.fa.fa-pencil.text-muted
+= will_paginate @courses, renderer: BootstrapPagination::Rails, previous_label: 'Prev', next_label: 'Next', bootstrap: 3

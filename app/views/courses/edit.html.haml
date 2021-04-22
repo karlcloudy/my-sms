@@ -1,0 +1,45 @@
+- content_for :title do
+  Editing: 
+  = @course.name
+%h1
+  %i.fa.fa-certificate
+  Edit Course
+.panel.panel-primary
+  .panel-heading
+    %h3.panel-title
+      Editing
+      = @course.name
+  = form_for @course, html: { class: "panel-body" } do |f|
+    - if @course.errors.any?
+      #error_explanation.alert.alert-danger
+        %i.fa.fa-exclamation-circle
+        Your submission could not be saved due to the following
+        = 'error'.pluralize(@course.errors.count)
+        \:
+        %ul
+        - @course.errors.full_messages.each do |message|
+          %li= message
+    .form-row
+      .form-group.col-md-12
+        = f.label :name
+        = f.text_field :name, class: "form-control"
+      .form-group.col-md-12
+        = f.label :description
+        = f.text_area :description, class: "form-control", rows: 5
+      .form-group.col-md-2
+        = f.label :number_of_semesters
+        = f.number_field :number_of_semesters, class: "form-control", in: (1..4)
+      .form-group.col-md-2
+        = f.label :allocation, 'Student allocation'
+        = f.number_field :allocation, class: "form-control", min: 0
+      .form-group.col-md-2
+        = f.label :start_date
+        = f.text_field :start_date, type: 'date', class: "form-control"
+      .form-group.col-md-2
+        = f.label :end_date
+        = f.text_field :end_date, type: 'date', class: "form-control"
+    .col-md-12           
+      = button_tag "Submit", class: "btn btn-primary" do
+        %i.fa.fa-save
+        Save
+      = link_to "Cancel", :back, class: "btn btn-default"

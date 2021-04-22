@@ -1,3 +1,6 @@
+- content_for :title do
+  Editing: 
+  = @student.full_name
 %h1
   %i.fa.fa-user
   Edit Student
@@ -39,6 +42,7 @@
       .form-group.col-md-2
         = f.label :gender
         = f.select :gender, options_for_select({ 'Male' => 'M', 'Female' => 'F', 'Other' => 'O' }), {}, { class: "form-control" }
+    .form-row.col-md-12
       = button_tag "Submit", class: "btn btn-primary" do
         %i.fa.fa-save
         Save

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe StudentsController, type: :controller do
   let(:student) { create(:student) }
-
+  
   describe 'GET #index' do
     subject { get :index }
 

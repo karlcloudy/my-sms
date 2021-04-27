@@ -14,9 +14,13 @@
 
 /* Rails generates these on fields with validation errors and mucks up the layout */
 .field_with_errors {
-  display: inline
+  display: inline;
 }
 
 .panel_button {
   margin-left: 10px;
+}
+
+ul.course_list {
+  margin-bottom: 0;
 }

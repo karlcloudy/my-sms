@@ -5,7 +5,6 @@ class CreateStudentTitleRelationship < ActiveRecord::Migration
       t.rename :title, :title_migrated
       
       t.references :title
-      t.foreign_key :titles
     end
     
     # Make nullable, since this is only for old data.
@@ -16,6 +15,5 @@ class CreateStudentTitleRelationship < ActiveRecord::Migration
     rename_column :students, :title_migrated, :title
     change_column_null :students, :title, true
     remove_column :students, :title_id
-    remove_foreign_key :students, :titles
   end
 end

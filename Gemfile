@@ -33,6 +33,7 @@ gem 'jquery-rails'
 group :test, :development do
   #rails console doesn't work without the 'test-unit' gem.
   gem 'test-unit', '~> 3.0'
+  gem 'shoulda-matchers', '~> 2.8.0'
 
   gem 'rspec-rails', '~> 3.9.1'
   gem 'pry'

@@ -10,15 +10,9 @@ RSpec.describe Institute, type: :model do
     it { is_expected.to be_valid }
   end
 
-  context 'when fields have invalid values' do
+  describe 'validations' do
     let(:institute) { build(:institute) }
 
-    it 'has an error for a blank name' do
-      subject.name = ''
-
-      subject.valid?
-
-      expect(subject.errors[:name].count).to be > 0
-    end
+    it { is_expected.to validate_presence_of(:name) }
   end
 end

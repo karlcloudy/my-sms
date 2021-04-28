@@ -26,6 +26,9 @@
       .form-group.col-md-12
         = f.label :description
         = f.text_area :description, class: "form-control", rows: 5
+      .form-group.col-md-12
+        = f.label :institute
+        = f.collection_select :institute_id, @course.selectable_institutes, :id, :name, { include_blank: 'Unassigned' }, { class: "form-control" }
       .form-group.col-md-2
         = f.label :number_of_semesters
         = f.number_field :number_of_semesters, class: "form-control", in: (1..4)

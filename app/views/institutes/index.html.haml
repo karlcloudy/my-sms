@@ -6,9 +6,19 @@
 %table.table.table-striped.table-hover
   %thead
     %tr
-      %th.col-lg-12{scope: "col"} Name
+      %th.col-lg-4{scope: "col"} Name
+      %th.col-lg-7{scope: "col"} Courses
+      %th.col-lg-1.text-right{scope: "col"} Actions
   %tbody
     - @institutes.each do |institute|
       %tr
         %td= institute.name
+        %td
+          = render 'course_list', institute: institute
+        %td.text-right
+          = link_to institute_path(institute) do
+            %i.fa.fa-search.text-muted
+          &nbsp;
+          = link_to edit_institute_path(institute) do
+            %i.fa.fa-pencil.text-muted
 = will_paginate @institutes, renderer: BootstrapPagination::Rails, previous_label: 'Prev', next_label: 'Next', bootstrap: 3

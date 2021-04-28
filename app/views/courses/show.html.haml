@@ -18,6 +18,14 @@
       %th{scope: "col"} Description
       %td= @course.description
     %tr
+      %th{scope: "col"} Institute
+      %td
+        = @course.institute_name || '-'
+        - if (@course.institute)
+          &nbsp;
+          = link_to institute_path(@course.institute) do
+            %i.fa.fa-search.text-muted
+    %tr
       %th{scope: "col"} No. of Semesters
       %td= @course.number_of_semesters
     %tr

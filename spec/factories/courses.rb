@@ -1,6 +1,7 @@
 FactoryBot.define do
   factory :course do
-    name { Faker::Educator.course_name }
+    association :institute
+    name { Faker::Educator.unique.course_name }
     description { [nil, '', Faker::Lorem.paragraph(sentence_count: 5)].sample }
     number_of_semesters { Faker::Number.within(range: 1..4) }
     allocation { [nil, Faker::Number.within(range: 1..100)].sample }

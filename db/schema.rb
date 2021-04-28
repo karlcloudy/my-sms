@@ -22,8 +22,10 @@ ActiveRecord::Schema.define(:version => 20210427012334) do
     t.date     "end_date",            :null => false
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
+    t.integer  "institute_id"
   end
 
+  add_index "courses", ["institute_id"], :name => "courses_institute_id_fk"
   add_index "courses", ["name"], :name => "index_courses_on_name", :unique => true
 
   create_table "institutes", :force => true do |t|
@@ -54,6 +56,8 @@ ActiveRecord::Schema.define(:version => 20210427012334) do
   end
 
   add_index "titles", ["title"], :name => "index_titles_on_title", :unique => true
+
+  add_foreign_key "courses", "institutes", name: "courses_institute_id_fk"
 
   add_foreign_key "students", "titles", name: "students_title_id_fk"
 

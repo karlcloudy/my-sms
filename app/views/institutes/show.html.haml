@@ -1,0 +1,19 @@
+- content_for :title do
+  = @institute.name
+%h1
+  %i.fa.fa-building
+  Institute Details
+.panel.panel-primary
+  .panel-heading.clearfix 
+    %h3.panel-title.pull-left
+      = @institute.name
+    = link_to edit_institute_path(@institute), class: "btn btn-default btn-xs pull-right panel_button" do
+      %i.fa.fa-pencil
+      Edit
+  %table.table
+    %tr
+      %th.col-lg-2{scope: "col"} Name
+      %td= @institute.name
+    %tr
+      %th.col-lg-2{scope: "col"} Courses
+      %td= render 'course_list', institute: @institute  

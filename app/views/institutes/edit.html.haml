@@ -1,0 +1,30 @@
+- content_for :title do
+  Editing: 
+  = @institute.name
+%h1
+  %i.fa.fa-building
+  Edit Institute
+.panel.panel-primary
+  .panel-heading
+    %h3.panel-title
+      Editing
+      = @institute.name
+  = form_for @institute, html: { class: "panel-body" } do |f|
+    - if @institute.errors.any?
+      #error_explanation.alert.alert-danger
+        %i.fa.fa-exclamation-circle
+        Your submission could not be saved due to the following
+        = 'error'.pluralize(@institute.errors.count)
+        \:
+        %ul
+        - @institute.errors.full_messages.each do |message|
+          %li= message
+    .form-row
+      .form-group.col-md-12
+        = f.label :name
+        = f.text_field :name, class: "form-control"
+    .col-md-12           
+      = button_tag "Submit", class: "btn btn-primary" do
+        %i.fa.fa-save
+        Save
+      = link_to "Cancel", :back, class: "btn btn-default"

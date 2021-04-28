@@ -7,6 +7,20 @@ class InstitutesController < ApplicationController
     .paginate(page: params[:page], per_page: ApplicationHelper::PAGINATION_PAGE_SIZE)
   end
 
+  def show
+  end
+
+  def edit
+  end
+
+  def update
+    if @institute.update_attributes(params[:institute])
+      redirect_to @institute, notice: "Institute information updated."
+    else
+      render :edit
+    end
+  end
+
   private
 
   def set_institute
